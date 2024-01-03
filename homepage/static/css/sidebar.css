@@ -6,44 +6,62 @@
   transition: all 0.3s;
 }
 
+body, html {
+  border-radius: 30px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#acb7ae ;
+}
 #wrapper {
+  border-radius: 600px;
   display: flex;
   width: 100%;
   align-items: stretch;
+  
 }
 
 #sidebar {
+  border-radius: 600px;
+  padding: 25px;
   width: 250px;
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 999;
-  background: #4e6570;
-  color: #fff;
-  transition: all 0.3s;
+  background: #82716e;
+  color: #090101;
+  
+  transition: transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .sidebar.active {
+  border-radius: 30px;
   margin-left: -250px;
 }
 
 .sidebar-header {
+  border-radius: 60px;
   padding: 20px;
-  background: #607d8b;
+  background: #2b9fae;
 }
 
 .sidebar-components {
+  border-radius: 30px;
   padding: 20px 0;
-  border-bottom: 1px solid #607d8b;
+  border-bottom: 1px solid #f57579;
 }
 
 .sidebar-paragraph {
-  color: #fff;
+  border-radius: 30px;
+  color: #0a0a0a;
   padding: 10px;
 }
 
 .dropdown-toggle::after {
+  border-radius: 30px;
   display: block;
   position: absolute;
   top: 50%;
@@ -52,21 +70,26 @@
 }
 
 a.right-arrow[data-toggle="collapse"] {
+  border-radius: 30px;
   position: relative;
 }
 
 .sidebar-button {
+  border-radius: 20px;
   padding: 10px;
   font-size: 1.1em;
-  display: block;
+  display:grid;
 }
 
 .sidebar-button:hover {
-  color: #607d8b;
+  border-radius: 20px;
+  color: #0a0a0a;
   background: #fff;
 }
 
 .sidebar-subitem {
+  border-radius: 20px;
+  padding: 10px;
   font-size: 0.9em !important;
   padding-left: 30px !important;
   background: #3c515a;
@@ -80,13 +103,13 @@ ul.CTAs a {
   text-align: center;
   font-size: 0.9em !important;
   display: block;
-  border-radius: 5px;
+  border-radius: 45px;
   margin-bottom: 5px;
 }
 
 a.nav-button {
   background: #fff;
-  color: #607d8b;
+  color: #dfbbbc;
 }
 
 .bottomleft {
@@ -101,6 +124,7 @@ a.nav-button {
 ----------------------------------------------------- */
 
 #content {
+  border-radius: 20px;
   width: 100%;
   margin-left: 250px;
   padding: 20px;

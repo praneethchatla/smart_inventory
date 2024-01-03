@@ -1,5 +1,5 @@
 {% load static %}
-<!-- Log on to codeastro.com for more projects -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,18 +12,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/bootstrap.min.css' %}">
 
-    <!-- font awesome cdn -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+   
 
     <!-- Main CSS, then Sidebar CSS and Dialog Box CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">    
     <link rel="stylesheet" type="text/css" href="{% static 'css/sidebar.css' %}">    
     <link rel="stylesheet" type="text/css" href="{% static 'css/dialogbox.css' %}">    
 
-    <title>IMS - {% block title %}Title Missing{% endblock title %}</title>
+    <title>ICS - {% block title %}Inventory{% endblock title %}</title>
 
 </head>
-<!-- Log on to codeastro.com for more projects -->
+
 <body>
 
     <!-- Dialog Box CSS  -->
@@ -42,9 +42,7 @@
     
         <nav id="sidebar">
             
-            <div class="sidebar-header">
-                <a class="navbar-brand titlefont mr-4" href="{% url 'home' %}"><h3>IMS-Django </h3></a>
-            </div>
+            
 
             <ul class="list-unstyled sidebar-components">
                 {# <p class="sidebar-paragraph">Dummy Heading</p> #}
@@ -80,8 +78,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="sidebar-text sidebar-button" href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a>
-                </li><!-- Log on to codeastro.com for more projects -->
+                    <a class="sidebar-text sidebar-button" href="{% url 'low_stock_list' %}"><i class="fas fa-info-circle"></i> Low Stock List</a>
+                </li>
 
                 <li class="bottomleft">
                     <a href="#UserSubmenu" data-toggle="collapse" class="dropdown-toggle sidebar-text right-arrow sidebar-button"><i class="fas fa-user-circle"></i> {{ request.user.username }}</a>
@@ -94,16 +92,7 @@
                 </li>
 
             </ul>
-            {% comment %}
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="#" class="sidebar-button nav-button">Button</a>
-                </li>
-                <li>
-                    <a href="#" class="sidebar-text">Link</a>
-                </li>
-            </ul>
-            {% endcomment %}
+            
 
         </nav>
     
@@ -131,7 +120,7 @@
         </div>
     
     </main>    
-        <!-- Log on to codeastro.com for more projects -->
+       
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{% static 'bootstrap/jquery-3.3.1.slim.min.js' %}"></script>
     <script src="{% static 'bootstrap/popper.min.js' %}"></script>

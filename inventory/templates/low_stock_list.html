@@ -3,14 +3,17 @@
 {% load widget_tweaks %}
 
 
-{% block title %} Inventory List {% endblock title %}
+{% block title %}Low Stock Inventory List {% endblock title %}
 
 
 {% block content %}
-    <!-- Log on to codeastro.com for more projects -->
+    
     <div class="row" style="color: #4e4e4e; font-style: bold; font-size: 3rem; ">
-        <div class="col-md-8">Inventory List</div>
-       
+        <div class="col-md-8">Low Stock Inventory List</div>
+        <div class="col-md-4">               
+            <div style="float:right;"> <a class="btn btn-success" href="{% url 'select-supplier' %}">Increase Stock</a> </div>
+        </div>
+        
     </div>
     
     <div style="border-bottom: 1px solid white;"></div>
@@ -19,13 +22,11 @@
 
     <table class="table table-css table-bordered table-hover">
 
-	<!-- Log on to codeastro.com for more projects -->
+	
         <form method="get">
             <div class="input-group search">
                 {% render_field filter.form.name class="form-control textinput" placeholder="Search by stock name" %}
-                <div class="input-group-append">
-                   <button type="submit" class="btn btn-pink"> Search </button>
-                </div>
+                
             </div>
         </form>
 
@@ -34,24 +35,22 @@
         <thead class="thead-dark align-middle">
             <tr>
                 <th width="40%">Stock Name</th>
-                <th>Current Stock in Inventory</th>
-                <th>Actions</th>
+                <th>Quantity</th>
+               
             </tr>
         </thead>
+
                   
-{% if object_list %}
+{% if low_stock_items %}
 
         <tbody>      
-            {% for stock in object_list %}
+            {% for stock in low_stock_items %}
                 <tr>
                     <td>
                         <p>{{ stock.name }}</p>
                     </td>
                     <td class="align-middle">{{ stock.quantity }}</td>
-                    <td class="align-middle">
-                        <a href="{% url 'edit-stock' stock.pk %}" class="btn btn-info btn-sm">Edit Details</a>
-                        <a href="{% url 'delete-stock' stock.pk %}" class="btn btn-danger btn-sm"> Delete Stock </a>
-                    </td>          
+                              
                 </tr>
             {% endfor %}                   
         </tbody>
@@ -74,7 +73,7 @@
                 {% endif %}
             {% endfor %}
 
-            {% if page_obj.has_next %}<!-- Log on to codeastro.com for more projects -->
+            {% if page_obj.has_next %}
                 <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
                 <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
             {% endif %}
@@ -85,10 +84,10 @@
 {% else %}
 
         <tbody></tbody>   
-    </table><!-- Log on to codeastro.com for more projects -->
+    </table>
 
     <br><br><br><br><br><br><br><br>
-    <div style="color: #575757; font-style: bold; font-size: 1.5rem; text-align: center;">The records are empty. Please try adding some.</div>
+    <div style="color: #575757; font-style: bold; font-size: 1.5rem; text-align: center;">No low stock items found.</div>
 
 {% endif %}
 

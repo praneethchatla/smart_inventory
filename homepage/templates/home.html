@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-<!-- Log on to codeastro.com for more projects -->
+
 {% load static %}
 
 
@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <div style="color:#464646; font-style: bold; font-size: 3rem; border-bottom: 1px solid #464646;">Welcome, {{ request.user.username }}</div>
+    <div style="color:#464646; font-style: bold; font-size: 3rem; border-bottom: 1px solid #464646;" link href="https://fonts.googleapis.com/css2?family=Mate&display=swap" rel="stylesheet">INVENTORY CONTROL SYSTEM</div>
 
     <br>
 
@@ -30,7 +30,7 @@
     <br>
 
     <div class="content-section">
-        <div class="row"><!-- Log on to codeastro.com for more projects -->
+        <div class="row">
 
             <div class="col-md-6">
                 <div style="color: #4e6570; font-style: bold; font-size: 1.3em; border-bottom: 2px solid #4e6570">Recent Sales</div><br>
@@ -44,7 +44,7 @@
                             Purchased by <b>{{ item.name }}</b> <br>
                             <small><i>{{ item.time.date }}</i></small>
                         </div>
-                        <div class="col-md-2"> <br> ${{ item.get_total_price }} <br> <a href="{% url 'sale-bill' item.billno %}">View Bill</a> </div>
+                        <div class="col-md-2"> <br> Rs. {{ item.get_total_price }} <br> <a href="{% url 'sale-bill' item.billno %}">View Bill</a> </div>
                     </div>
                 {% endfor %}
             </div>
@@ -55,19 +55,19 @@
                     {% if not forloop.first %}
                         <br><div style="border-bottom: 0.5px solid #4e6570"></div><br>
                     {% endif %}
-                    <div class="row">   <!-- Log on to codeastro.com for more projects -->            
+                    <div class="row">               
                         <div class="col-md-9"> 
                             Bill No: #{{ item.billno }} <br> 
                             Purchased by <b>{{ item.supplier.name }}</b> <br>
                             <small><i>{{ item.time.date }}</i></small>
                         </div>
-                        <div class="col-md-2"> <br>${{ item.get_total_price }} <br> <a href="{% url 'purchase-bill' item.billno %}">View Bill</a> </div>
+                        <div class="col-md-2"> <br>Rs. {{ item.get_total_price }} <br> <a href="{% url 'purchase-bill' item.billno %}">View Bill</a> </div>
                     </div>
                 {% endfor %}
             </div>
 
         </div>
-    </div><!-- Log on to codeastro.com for more projects -->
+    </div>
 
     <!-- Loading Chart JS -->
     <script src="{% static 'js/Chart.min.js' %}"></script>  

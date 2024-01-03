@@ -4,12 +4,15 @@ from django.views.generic import (
     CreateView, 
     UpdateView
 )
+from django.http import JsonResponse
+from django.views.generic import ListView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from .models import Stock
 from .forms import StockForm
 from django_filters.views import FilterView
 from .filters import StockFilter
+from django.db.models import F
 
 
 class StockListView(FilterView):
@@ -62,3 +65,11 @@ class StockDeleteView(View):                                                    
         stock.save()                                               
         messages.success(request, self.success_message)
         return redirect('inventory')
+    
+class LowStockListView(ListView):
+    model = Stock
+    template_name = 'low_stock_list.html'
+    context_object_name = 'low_stock_items'
+
+    def get_queryset(self):
+        return Stock.objects.filter(quantity__lt=10)
